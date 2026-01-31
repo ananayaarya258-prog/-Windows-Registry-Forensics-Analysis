@@ -427,7 +427,7 @@ Registry Paths:
 
 SYSTEM\CurrentControlSet\Services\bam\UserSettings\{SID}
 
-![UserAssist Evidence](Background Activity Monitor.png)
+![UserAssist Evidence](Background_Activity_Monitor.png)
 
 SYSTEM\CurrentControlSet\Services\dam\UserSettings\{SID}
 
