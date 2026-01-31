@@ -147,7 +147,6 @@ Registry Path:
 SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces
 
 ![UserAssist Evidence](Network_Interfaces)
-
 Data Visible:
 
 Interface GUIDs
