@@ -191,6 +191,7 @@ NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\RunOnce
 SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
 SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
+
 ![UserAssist Evidence](Auto_Start_Programs.png)
 
 
@@ -203,27 +204,12 @@ Executable paths
 Why It Matters in Investigation:
 These keys identify programs that automatically execute at user logon. They are critical for detecting persistence mechanisms commonly used by malware and unauthorized software.
 
-🔍 Artifact 6: Services Configuration
-
-Registry Path:
-
-SYSTEM\CurrentControlSet\Services
-
-
-Data Visible:
-
-Service names
-
-Start value
-
-Why It Matters in Investigation:
-If the Start value is set to 0x02, the service starts automatically at boot. This is significant for identifying malicious or suspicious services configured for persistence.
-
 🔍 Artifact 7: User Accounts (SAM Hive)
 
 Registry Path:
 
 SAM\Domains\Account\Users
+
 ![UserAssist Evidence](Users_Information.png)
 
 
@@ -243,6 +229,96 @@ Group membership
 
 Why It Matters in Investigation:
 The SAM hive provides critical user account information. It helps identify legitimate and suspicious users, detect brute-force attempts, and understand account activity during an investigation.
+
+
+🔍 Artifact 8: Recently Opened Files (RecentDocs)
+
+Registry Path:
+
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\RecentDocs
+
+![UserAssist Evidence](Recently_Opened_Files.png)
+
+Data Visible:
+
+Recently opened file names
+
+File extensions
+
+Most Recently Used (MRU) order
+
+Last opened timestamps
+
+Why It Matters in Investigation:
+This registry key stores evidence of files recently accessed by the user. It helps investigators reconstruct user activity and identify documents accessed around the time of an incident.
+
+
+
+🔍 Artifact 11: Open/Save Dialog MRUs
+
+Registry Paths:
+
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\OpenSavePIDlMRU
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPidlMRU
+
+![UserAssist Evidence](Recently_Opened_Files.png)
+
+
+Data Visible:
+
+Recently opened or saved file locations
+
+Executable names
+
+Folder paths
+
+Why It Matters in Investigation:
+These artifacts identify files and locations accessed through Open/Save dialogs, even when files are no longer present on the system.
+
+🔍 Artifact 12: Windows Explorer Typed Paths
+
+Registry Path:
+
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\TypedPaths
+
+![UserAssist Evidence](WindowExplorer_SearchBars.png)
+
+Data Visible:
+
+Folder paths manually typed by the user
+
+Why It Matters in Investigation:
+Typed paths show deliberate access to specific directories, including hidden or sensitive locations.
+
+🔍 Artifact 13: Windows Explorer Search History
+
+Registry Path:
+
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\WordWheelQuery
+
+![UserAssist Evidence](WindowExplorer_SearchBars.png)
+Data Visible:
+
+Search keywords entered by the user
+
+Why It Matters in Investigation:
+Search terms help identify user intent and can indicate attempts to locate specific files or data.
+
+
+Data Visible:
+
+Recently opened file names
+
+File extensions
+
+Most Recently Used (MRU) order
+
+Last opened timestamps
+
+Why It Matters in Investigation:
+This registry key stores evidence of files recently accessed by the user. It helps investigators reconstruct user activity and identify documents accessed around the time of an incident.
+
+
 
 ---
 
