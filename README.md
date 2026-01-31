@@ -169,6 +169,7 @@ Registry Paths:
 SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Unmanaged
 SOFTWARE\Microsoft\Windows NT\CurrentVersion\NetworkList\Signatures\Managed
 
+![UserAssist Evidence](Past_Networks.png)
 
 Data Visible:
 
@@ -190,6 +191,7 @@ NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\RunOnce
 SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
 SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\Run
+![UserAssist Evidence](Auto_Start_Programs.png)
 
 
 Data Visible:
@@ -222,6 +224,7 @@ If the Start value is set to 0x02, the service starts automatically at boot. Thi
 Registry Path:
 
 SAM\Domains\Account\Users
+![UserAssist Evidence](Users_Information.png)
 
 
 Data Visible:
