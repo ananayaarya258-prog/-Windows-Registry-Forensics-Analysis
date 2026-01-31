@@ -427,11 +427,11 @@ Registry Paths:
 
 SYSTEM\CurrentControlSet\Services\bam\UserSettings\{SID}
 
-![UserAssist Evidence](Background_Activity_Monitor.png)
+![UserAssist Evidence](bam.png)
 
 SYSTEM\CurrentControlSet\Services\dam\UserSettings\{SID}
 
-![UserAssist Evidence]Desktop Activity Moderator.png)
+![UserAssist Evidence](Dam.png)
 
 Data Visible:
 
