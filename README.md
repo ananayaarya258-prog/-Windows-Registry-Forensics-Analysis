@@ -130,7 +130,7 @@ Registry Path:
 
 SYSTEM\CurrentControlSet\Control\TimeZoneInformation
 
-![UserAssist Evidence](Time_Zone_Information)
+![UserAssist Evidence](Time_Zone_Information.png)
 Data Visible:
 
 Time zone name
@@ -146,7 +146,7 @@ Registry Path:
 
 SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces
 
-![UserAssist Evidence](Network_Interfaces)
+![UserAssist Evidence](Network_Interfaces.png)
 Data Visible:
 
 Interface GUIDs
