@@ -275,6 +275,25 @@ Folder paths
 Why It Matters in Investigation:
 These artifacts identify files and locations accessed through Open/Save dialogs, even when files are no longer present on the system.
 
+🔍 Artifact 14: LastVisited Dialog MRUs
+
+Registry Path:
+
+NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Explorer\ComDlg32\LastVisitedPidlMRU
+
+![UserAssist Evidence](Last_Visited_Files.png)
+
+Data Visible:
+
+Executable name of the program used to open or save files
+
+Last accessed folder path
+
+Most Recently Used (MRU) order
+
+Why It Matters in Investigation:
+This artifact records the last directories accessed by applications through the Open or Save dialog boxes. It helps investigators identify which programs were used and the locations from which files were accessed, even if the files themselves have been deleted.
+
 🔍 Artifact 12: Windows Explorer Typed Paths
 
 Registry Path:
@@ -317,6 +336,117 @@ Last opened timestamps
 
 Why It Matters in Investigation:
 This registry key stores evidence of files recently accessed by the user. It helps investigators reconstruct user activity and identify documents accessed around the time of an incident.
+
+🔍 Artifact: UserAssist
+
+Purpose:
+UserAssist registry keys track applications launched by a user through Windows Explorer. Windows uses this data for user activity statistics.
+
+Registry Path:
+
+NTUSER.DAT
+\Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count
+
+![UserAssist Evidence](UserAssist.png)
+
+
+Data Visible:
+
+Program name (ROT13 encoded)
+
+Last execution time
+
+Execution count
+
+User-specific activity (per GUID)
+
+Important Note:
+Programs executed via Command Prompt or PowerShell are not recorded in UserAssist.
+
+Why It Matters in Investigation:
+UserAssist helps investigators determine:
+
+Which applications a user actually ran
+
+Frequency of application usage
+
+Approximate timeline of user activity
+
+
+
+🔍 Artifact: AmCache
+
+Purpose:
+AmCache is an advanced execution artifact related to ShimCache. It stores detailed metadata about executed programs.
+
+Hive Location:
+
+C:\Windows\AppCompat\Programs\Amcache.hve
+
+![UserAssist Evidence](AmCache.png)
+
+
+Registry Path:
+
+Amcache.hve
+\Root\File\{Volume GUID}\
+
+
+Data Visible:
+
+Full execution path
+
+Installation time
+
+Execution time
+
+Deletion time
+
+SHA1 hash of executable
+
+Why It Matters in Investigation:
+AmCache is extremely valuable because it:
+
+Confirms program execution
+
+Helps detect renamed or deleted malware
+
+Supports hash-based threat analysis
+
+🔍 Artifact: BAM / DAM (Background & Desktop Activity Monitor)
+
+Purpose:
+
+BAM (Background Activity Monitor): Tracks background application execution
+
+DAM (Desktop Activity Moderator): Optimizes power usage and tracks application behavior
+
+Both are part of Modern Standby in Windows.
+
+Registry Paths:
+
+SYSTEM\CurrentControlSet\Services\bam\UserSettings\{SID}
+
+![UserAssist Evidence](Background Activity Monitor.png)
+
+SYSTEM\CurrentControlSet\Services\dam\UserSettings\{SID}
+
+![UserAssist Evidence]Desktop Activity Moderator.png)
+
+Data Visible:
+
+Full path of executed programs
+
+Last execution timestamp
+
+User SID associated with execution
+
+Why It Matters in Investigation:
+BAM/DAM artifacts help:
+
+Identify stealthy background executions
+
+Correlate activity with user accounts
 
 
 
