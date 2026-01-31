@@ -98,6 +98,8 @@ NTUSER.DAT
 ## 🧪 Important Registry Keys for Forensics
 
 ### 🔹 OS Information
+![UserAssist Evidence](OS-Versiion.png)
+
 HKLM\Software\Microsoft\Windows NT\CurrentVersion
 
 Used to find:
