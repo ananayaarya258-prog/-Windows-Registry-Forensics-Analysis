@@ -97,7 +97,7 @@ NTUSER.DAT
 
 ## 🧪 Important Registry Keys for Forensics
 
-### 🔹 OS Information
+🔍 Artifact: OS Information
 
 PATH
 HKLM\Software\Microsoft\Windows NT\CurrentVersion
@@ -110,7 +110,7 @@ Used to find:
 - Registered owner
 
 ---
-🔍 Artifact 1: Computer Name
+🔍 Artifact: Computer Name
 
 Registry Path:
 
@@ -124,7 +124,7 @@ Computer Name of the system
 Why It Matters in Investigation:
 Establishing the computer name is crucial to confirm that forensic analysis is being conducted on the correct machine. This helps avoid evidence contamination and ensures accuracy when correlating artifacts across multiple systems.
 
-🔍 Artifact 2: Time Zone Information
+🔍 Artifact: Time Zone Information
 
 Registry Path:
 
@@ -140,7 +140,7 @@ Bias and daylight saving information
 Why It Matters in Investigation:
 Some system artifacts store timestamps in UTC/GMT, while others store them in local time. Knowing the system’s time zone is essential for accurate timeline reconstruction and correlation of events from multiple data sources.
 
-🔍 Artifact 3: Network Interfaces
+🔍 Artifact: Network Interfaces
 
 Registry Path:
 
@@ -162,7 +162,7 @@ DNS server information
 Why It Matters in Investigation:
 Each network interface is identified by a unique GUID. This information helps confirm network configuration, identify IP addresses used by the system, and verify that the analysis is being performed on the intended machine.
 
-🔍 Artifact 4: Previously Connected Networks
+🔍 Artifact: Previously Connected Networks
 
 Registry Paths:
 
@@ -182,7 +182,7 @@ Last connected timestamps (Last Write Time)
 Why It Matters in Investigation:
 These keys reveal past networks the system connected to and the last time of connection. This is useful for identifying suspicious network access, tracking user movement, and supporting timeline analysis.
 
-🔍 Artifact 5: Autostart Programs (Persistence)
+🔍 Artifact: Autostart Programs (Persistence)
 
 Registry Paths:
 
@@ -204,7 +204,7 @@ Executable paths
 Why It Matters in Investigation:
 These keys identify programs that automatically execute at user logon. They are critical for detecting persistence mechanisms commonly used by malware and unauthorized software.
 
-🔍 Artifact 7: User Accounts (SAM Hive)
+🔍 Artifact: User Accounts (SAM Hive)
 
 Registry Path:
 
@@ -231,7 +231,7 @@ Why It Matters in Investigation:
 The SAM hive provides critical user account information. It helps identify legitimate and suspicious users, detect brute-force attempts, and understand account activity during an investigation.
 
 
-🔍 Artifact 8: Recently Opened Files (RecentDocs)
+🔍 Artifact: Recently Opened Files (RecentDocs)
 
 Registry Path:
 
@@ -254,7 +254,7 @@ This registry key stores evidence of files recently accessed by the user. It hel
 
 
 
-🔍 Artifact 11: Open/Save Dialog MRUs
+🔍 Artifact: Open/Save Dialog MRUs
 
 Registry Paths:
 
@@ -275,7 +275,7 @@ Folder paths
 Why It Matters in Investigation:
 These artifacts identify files and locations accessed through Open/Save dialogs, even when files are no longer present on the system.
 
-🔍 Artifact 14: LastVisited Dialog MRUs
+🔍 Artifact: LastVisited Dialog MRUs
 
 Registry Path:
 
@@ -294,7 +294,7 @@ Most Recently Used (MRU) order
 Why It Matters in Investigation:
 This artifact records the last directories accessed by applications through the Open or Save dialog boxes. It helps investigators identify which programs were used and the locations from which files were accessed, even if the files themselves have been deleted.
 
-🔍 Artifact 12: Windows Explorer Typed Paths
+🔍 Artifact: Windows Explorer Typed Paths
 
 Registry Path:
 
@@ -309,7 +309,7 @@ Folder paths manually typed by the user
 Why It Matters in Investigation:
 Typed paths show deliberate access to specific directories, including hidden or sensitive locations.
 
-🔍 Artifact 13: Windows Explorer Search History
+🔍 Artifact: Windows Explorer Search History
 
 Registry Path:
 
@@ -431,7 +431,7 @@ SYSTEM\CurrentControlSet\Services\bam\UserSettings\{SID}
 
 SYSTEM\CurrentControlSet\Services\dam\UserSettings\{SID}
 
-![UserAssist Evidence](Dam.png)
+![UserAssist Evidence](dam.png)
 
 Data Visible:
 
@@ -447,6 +447,34 @@ BAM/DAM artifacts help:
 Identify stealthy background executions
 
 Correlate activity with user accounts
+
+🔍 Artifact: Device Identification (USB Device History)
+
+Purpose:
+Windows records information about USB storage and USB devices that have been connected to the system. These registry locations help identify which external devices were used, when they were connected, and whether data could have been transferred.
+
+📍 Registry Paths
+SYSTEM\CurrentControlSet\Enum\USBSTOR
+![UserAssist Evidence](Device_identification1.png)
+
+
+SYSTEM\CurrentControlSet\Enum\USB
+![UserAssist Evidence](Device_identification2.png)
+
+
+📊 Data Visible
+
+Vendor ID (VID)
+
+Product ID (PID)
+
+Device version
+
+Device serial number (unique identification)
+
+First connection time
+
+Last connection time
 
 
 
