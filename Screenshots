@@ -1,1 +1,14 @@
+### 🔍 Artifact: OS Version
 
+**Registry Path:**  
+SOFTWARE\Microsoft\Windows NT\CurrentVersion
+
+**Data Visible:**  
+- Executed program names  
+- Run count  
+- Last execution timestamps  
+
+**Why It Matters in Investigation:**  
+This artifact helps investigators identify which programs were executed by the user and supports user activity timeline reconstruction.
+
+![UserAssist Evidence](Screenshots/OS-Version)
